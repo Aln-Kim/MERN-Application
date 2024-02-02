@@ -1,2 +1,2 @@
 # FullStack-Blog
-Using the MERN stack to create a blog 
+Using the MERN stack to create a social app copy
