@@ -12,6 +12,9 @@ import { fileURLToPath } from "url";
 import { register } from "module";
 import { register } from "./controllers/auth.js";
  
+import { register } from "module";
+import { register } from "./controllers/auth.js";
+ 
 /* CONFIGS */
 //Grab file URL
 const __filename = fileURLToPath(import.meta.url);
