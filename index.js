@@ -47,6 +47,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* ROUTES for files */
+//Upload is middleware function b/c you upload ^^^ and it happens before register using api for path
 app.post("/auth/register" , upload.single("picture"), register);
 
 /* MONGOOSE SET */
@@ -56,5 +57,5 @@ mongoose
     useNewUrlParser: true;
     useUnifiedTopology: true;
 }).then(() => {
-    app.listen(PORT, () => console.log('Server Port: ${PORT}'));
-}).catch((error) => console.log(`${error} did not connect`));
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+}).catch((error) => console.log(`${error} did not connect`))
