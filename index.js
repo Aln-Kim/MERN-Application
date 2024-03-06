@@ -13,6 +13,8 @@ import { register } from "module";
 import { register } from "./controllers/auth.js";
  
 import { register } from "module";
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
 import { register } from "./controllers/auth.js";
  
 /* CONFIGS */
@@ -53,12 +55,17 @@ const upload = multer({ storage });
 //Upload is middleware function b/c you upload ^^^ and it happens before register using api for path
 app.post("/auth/register" , upload.single("picture"), register);
 
+/*ROUTES*/
+app.use("/auth", authRoutes);
+app.use("/users", userRoutes);
+
+
 /* MONGOOSE SET */
 const PORT = process.env.PORT || 6001;
 mongoose
 .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true;
-    useUnifiedTopology: true;
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 }).then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 }).catch((error) => console.log(`${error} did not connect`))
